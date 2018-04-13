@@ -1,9 +1,203 @@
 :host {
   height: inherit;
   width: inherit;
-  background: rgb(221,221,221); /* Old browsers */
-  background: -moz-linear-gradient(45deg, rgba(221,221,221,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(45deg, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(45deg, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  // left side of the screen
+  #login-left {
+    background: #dadada;
+    background: linear-gradient(45deg, #dadada 0%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dadada', endColorstr='#ffffff',GradientType=1 );
+    -webkit-box-shadow: 2px 0px 5px 0px rgba(29, 29, 29, 0.5);
+    -moz-box-shadow: 2px 0px 5px 0px rgba(29, 29, 29, 0.5);
+    box-shadow: 2px 0px 3px 0px rgba(29, 29, 29, 0.5);
+    z-index: 10;
+  }
+
+  #login-left-top {
+    height: calc(100% - 30px);
+  }
+
+  #logo {
+    height: 80px;
+  }
+
+  #text-top {
+    font-family: "Raleway";
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14pt;
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 0.6);
+    color: #6b6b6b;
+  }
+
+  #text-bottom {
+    font-family: "Raleway";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14pt;
+    font-weight: 300px;
+    text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.6);
+    color: #2b86ca;
+  }
+
+  #version {
+    font-size: x-small;
+    font-family: "Open Sans";
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  #version span {
+    color: #257ec2;
+  }
+
+  // right side of the screen
+  #login-right {
+    background: #0c5ea1;
+    background: linear-gradient(45deg, #0c5ea1 0%, #3f9fe4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c5ea1', endColorstr='#3f9fe4',GradientType=1 );
+  }
+
+  // carousel
+  ngx-siema {
+    height: 100%;
+    width: 50%;
+  }
+
+  #sign-in-label {
+    font-family: "Raleway";
+    text-transform: uppercase;
+    text-shadow: 2px 2px 2px rgb(97, 97, 97);
+    color: #fcfcfc;
+    font-size: 20pt;
+    padding-left: 44px;
+  }
+
+  .login-input {
+    width: 75%;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #ffffff30;
+    color: white;
+    padding-bottom: 10px;
+    padding-left: 61px;
+    font-family: "Raleway";
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  .login-input:focus {
+    outline: none;
+  }
+
+  .login-span {
+    position: absolute;
+    left: 13%;
+    font-family: "Raleway";
+    font-size: 12px;
+    color: #e6e6e6;
+    padding-top: 0px;
+    transition: color 0.2s ease-in-out;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+  }
+
+  #username-box:focus + #username-label,
+  #password-box:focus + #password-label {
+    color: #6fd2ff;
+  }
+
+  // remember me and its related checkbox/label alterations
+  #remember-me {
+    padding-left: 44px;
+    padding-top: 10px;
+  }
+
+  #login-button {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid red;
+    color: red;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font: {
+      size: 12px;
+      weight: bold;
+    }
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &:hover {
+      color: white;
+      background: red;
+    }
+    &:active {
+      //letter-spacing: 2px;
+      letter-spacing: 2px;
+    }
+    &:after {
+      content: "SUBMIT";
+    }
+  }
+  .onclick {
+    width: 40px;
+    border-color: blue;
+    border-width: 3px;
+    font-size: 0;
+    border-left-color: red;
+    animation: rotating 2s 0.25s linear infinite;
+
+    &:after {
+      content: "";
+    }
+    &:hover {
+      color: red;
+      background: white;
+    }
+  }
+  .validate {
+    font-size: 13px;
+    color: white;
+    background: red;
+    &:after {
+      font-family: "FontAwesome";
+      content: "\f00c";
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Change Autocomplete styles in Chrome*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-animation: autofill 0s forwards;
+    animation: autofill 0s forwards;
+  }
+
+  @keyframes autofill {
+    100% {
+      background: transparent;
+      color: white;
+    }
+  }
+
+  @-webkit-keyframes autofill {
+    100% {
+      background: transparent;
+      color: white;
+    }
+  }
 }

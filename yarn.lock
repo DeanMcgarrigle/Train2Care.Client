@@ -4331,6 +4331,12 @@ next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
+ngx-siema@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-siema/-/ngx-siema-2.0.1.tgz#a9d4c32962b528e7c10c9fb12aaf37ea75d2f753"
+  dependencies:
+    siema "^1.4.6"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
@@ -5827,6 +5833,10 @@ shell-quote@^1.6.1:
     array-map "~0.0.0"
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
+
+siema@^1.4.6:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/siema/-/siema-1.5.1.tgz#eff312b77e8340fa4d81d5d053ebbeb9113ff888"
 
 signal-exit@^3.0.0:
   version "3.0.2"

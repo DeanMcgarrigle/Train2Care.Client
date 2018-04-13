@@ -1,15 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { environment } from "../../../environments/environment";
+import { NgxSiemaOptions, NgxSiemaService } from "ngx-siema";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
+  logo: any;
+  version: string;
+  rememberMe: boolean;
 
-  constructor() { }
+  // carousel vars
+  currentSlide = 0;
+  carouselOptions: NgxSiemaOptions = {
+    selector: ".siema",
+    duration: 200,
+    easing: "ease-out",
+    perPage: 1,
+    startIndex: 0,
+    draggable: false,
+    threshold: 20,
+    loop: false,
+    onInit: () => {
+      // runs immediately after first initialization
+    },
+    onChange: () => {
+      // runs after slide change
+    }
+  };
 
-  ngOnInit() {
+  constructor(private siema: NgxSiemaService) {
+    this.logo = require("../../../assets/img/logo-notext-ps.png");
+    this.version = environment.version;
+    this.rememberMe = false;
   }
 
+  ngOnInit() {}
+
+  // moves slider to the left
+  slideSelect(sel, slide) {
+    console.log(slide);
+    this.siema.prev(1, sel).subscribe((data: any) => {
+      // tslint:disable-next-line:no-unused-expression
+      data != null ? (this.currentSlide = data.currentSlide) : 0;
+    });
+    console.log(this.currentSlide);
+  }
+
+  login() {
+    console.log("logging in");
+  }
 }

@@ -1,0 +1,66 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-5" id="login-left">
+            <div class="row align-items-center justify-content-center" id="login-left-top">
+                <div class="col">
+                    <div class="row justify-content-center pb-3">
+                        <img [src]="logo" id="logo">
+                    </div>
+                    <div class="row justify-content-center">
+                        <div id="text-top">Certification</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div id="text-bottom">Manager</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div id="version">© 2018 IT4Offices |
+                    <span>{{version}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-7" id="login-right">
+            <div class="row align-items-center justify-content-center h-100" id="login-left-top">
+                <div class="col">
+                    <!-- <div class="row justify-content-center"> -->
+                    <!-- <button (click)="slideSelect('.siema', 0)">prev</button> -->
+                    <!-- <button (click)="next('.siema')">next</button> -->
+                    <!-- </div> -->
+                    <div class="row justify-content-center pb-3">
+                        <ngx-siema [options]="carouselOptions">
+                            <ngx-siema-slide>
+                                <div class="col">
+                                    <div class="row pb-4">
+                                        <div id="sign-in-label">Sign In</div>
+                                    </div>
+                                    <div class="row justify-content-center pb-4">
+                                        <input type="text" id="username-box" class="login-input" required autofocus="true">
+                                        <span class="login-span" id="username-label" style="top:66px;">username</span>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <input type="password" id="password-box" class="login-input" required>
+                                        <span class="login-span" id="password-label" style="top:121px;">password</span>
+                                    </div>
+                                    <div class="row pb-5">
+                                        <p-checkbox id="remember-me" [(ngModel)]="rememberMe" binary="true" label="Keep me signed in"></p-checkbox>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <button id="login-button" (click)="login()"></button>
+                                    </div>
+                                    <!-- <div class="row justify-content-center">
+                                        forgotten details - don't have an account?
+                                    </div> -->
+                                </div>
+                            </ngx-siema-slide>
+                            <ngx-siema-slide>2</ngx-siema-slide>
+                        </ngx-siema>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div id="help"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 {
   "name": "train2-care.client",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -30,6 +30,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.5",
+    "ngx-siema": "^2.0.1",
     "primeng": "^5.2.4",
     "rxjs": "^5.5.6",
     "web-animations-js": "^2.3.1",
