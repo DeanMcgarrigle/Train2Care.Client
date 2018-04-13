@@ -106,7 +106,9 @@
   }
 
   #username-box:focus + #username-label,
-  #password-box:focus + #password-label {
+  #password-box:focus + #password-label,
+  #register-username-box:focus + #register-username-label,
+  #register-password-box:focus + #register-password-label {
     color: #6fd2ff;
   }
 
@@ -132,7 +134,7 @@
     cursor: pointer;
     -webkit-transition: all 0.15s ease;
     transition: all 0.15s ease;
-    font-family: 'Raleway';
+    font-family: "Raleway";
     font-weight: 400;
     text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
     &:hover {
@@ -144,7 +146,7 @@
       letter-spacing: 2px;
     }
     &:after {
-      font-family: 'Font Awesome 5 Pro';
+      font-family: "Font Awesome 5 Pro";
       font-weight: 400;
       font-size: 20px;
       text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
@@ -157,7 +159,7 @@
     border-width: 3px !important;
     font-size: 0 !important;
     border-left-color: #3a96d9 !important;
-    border-radius: 40px !important; 
+    border-radius: 40px !important;
     animation: rotating 1s 0.25s linear infinite;
 
     &:after {
@@ -186,6 +188,30 @@
     to {
       transform: rotate(360deg);
     }
+  }
+
+  #help-row {
+    text-align: center;
+    font-family: "Raleway";
+    color: azure;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+  }
+
+  .help-text {
+    font-size: 12px;
+    cursor: pointer;
+    transition: color .2s ease-in-out;
+  }
+
+  .help-text:hover {
+    color: #6fd2ff;
+  }
+
+  .help-divider {
+    font-size: 6px;
+    vertical-align: 5px;
+    padding-left: 6px;
+    color: #232323;
   }
 
   /* Change Autocomplete styles in Chrome*/

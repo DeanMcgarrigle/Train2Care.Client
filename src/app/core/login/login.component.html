@@ -45,17 +45,50 @@
                                     <div class="row pb-5">
                                         <p-checkbox id="remember-me" [(ngModel)]="rememberMe" binary="true" label="Keep me signed in"></p-checkbox>
                                     </div>
-                                    <div class="row">
+                                    <div class="row pb-5">
                                         <div class="flex justify-content-center" style="width: 76%;">
                                             <button id="login-button" (click)="login()"></button>
                                         </div>
                                     </div>
-                                    <!-- <div class="row justify-content-center">
-                                        forgotten details - don't have an account?
-                                    </div> -->
+                                    <div class="row" id="help-row">
+                                        <div class="flex justify-content-center" style="width: 76%">
+                                            <div class="col-5 p-0 help-text">Forgotten Details</div>
+                                            <div class="col-2 p-0">
+                                                <i class="fas fa-circle help-divider"></i>
+                                            </div>
+                                            <div class="col-5 p-0 help-text" (click)="slideSelect('.siema', 1)">Not registered?</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </ngx-siema-slide>
-                            <ngx-siema-slide>2</ngx-siema-slide>
+                            <ngx-siema-slide>
+                                <div class="col slide-col">
+                                    <div class="row pb-4">
+                                        <div id="sign-in-label">Register</div>
+                                    </div>
+                                    <div class="row pb-4" style="padding-left: 2px;">
+                                        <input type="text" id="register-username-box" class="login-input" required autofocus="true">
+                                        <span class="login-span" id="register-username-label" style="top:66px;">username</span>
+                                    </div>
+                                    <div class="row" style="padding-left: 2px;">
+                                        <input type="password" id="register-password-box" class="login-input" required>
+                                        <span class="login-span" id="register-password-label" style="top:121px;">password</span>
+                                    </div>
+                                    <div class="row pb-5">
+                                        <!-- <p-checkbox id="remember-me" [(ngModel)]="rememberMe" binary="true" label="Keep me signed in"></p-checkbox> -->
+                                    </div>
+                                    <div class="row pb-5">
+                                        <div class="flex justify-content-center" style="width: 76%;">
+                                            <!-- <button id="login-button" (click)="login()"></button> -->
+                                        </div>
+                                    </div>
+                                    <div class="row" id="help-row">
+                                        <div class="flex justify-content-center" style="width: 76%">
+                                            <div class="col p-0 help-text" (click)="slideSelect('.siema', 0)">Already have an account?</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-siema-slide>
                         </ngx-siema>
                     </div>
                 </div>

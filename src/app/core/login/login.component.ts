@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
   currentSlide = 0;
   carouselOptions: NgxSiemaOptions = {
     selector: ".siema",
-    duration: 200,
-    easing: "ease-out",
+    duration: 250,
+    easing: "ease-in-out",
     perPage: 1,
     startIndex: 0,
     draggable: false,
@@ -42,11 +42,23 @@ export class LoginComponent implements OnInit {
   // moves slider to the left
   slideSelect(sel, slide) {
     console.log(slide);
-    this.siema.prev(1, sel).subscribe((data: any) => {
+    this.siema.goTo(slide, sel).subscribe((data: any) => {
       // tslint:disable-next-line:no-unused-expression
       data != null ? (this.currentSlide = data.currentSlide) : 0;
     });
-    console.log(this.currentSlide);
+    // if (slide >= 0) {
+    //   this.siema.next(1).subscribe((data: any) => {
+    //     // tslint:disable-next-line:no-unused-expression
+    //     data != null ? (this.currentSlide = data.currentSlide) : 0;
+    //   });
+    // } else {
+    //   this.siema.prev(0).subscribe((data: any) => {
+    //     // tslint:disable-next-line:no-unused-expression
+    //     data != null ? (this.currentSlide = data.currentSlide) : 0;
+    //   });
+    // }
+
+    // console.log(this.currentSlide);
   }
 
   login() {
@@ -68,7 +80,7 @@ export class LoginComponent implements OnInit {
   }
 
   callback() {
-    console.log('callback');
+    console.log("callback");
     setTimeout(function() {
       $("#login-button").removeClass("validate");
     }, 4250);
