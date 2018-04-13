@@ -4,9 +4,9 @@
 
   // left side of the screen
   #login-left {
-    background: #dadada;
-    background: linear-gradient(45deg, #dadada 0%, white 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dadada', endColorstr='#ffffff',GradientType=1 );
+    background: #adadad;
+    background: linear-gradient(45deg, #adadad 0%, #f3f3f3 50%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adadad', endColorstr='#ffffff',GradientType=1 );
     -webkit-box-shadow: 2px 0px 5px 0px rgba(29, 29, 29, 0.5);
     -moz-box-shadow: 2px 0px 5px 0px rgba(29, 29, 29, 0.5);
     box-shadow: 2px 0px 3px 0px rgba(29, 29, 29, 0.5);
@@ -54,9 +54,9 @@
 
   // right side of the screen
   #login-right {
-    background: #0c5ea1;
-    background: linear-gradient(45deg, #0c5ea1 0%, #3f9fe4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0c5ea1', endColorstr='#3f9fe4',GradientType=1 );
+    background: #00335d;
+    background: linear-gradient(45deg, #00335d 0%, #3f9fe4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00335d', endColorstr='#3f9fe4',GradientType=1 );
   }
 
   // carousel
@@ -65,13 +65,16 @@
     width: 50%;
   }
 
+  .slide-col {
+    left: 17%;
+  }
+
   #sign-in-label {
     font-family: "Raleway";
     text-transform: uppercase;
     text-shadow: 2px 2px 2px rgb(97, 97, 97);
     color: #fcfcfc;
     font-size: 20pt;
-    padding-left: 44px;
   }
 
   .login-input {
@@ -94,7 +97,6 @@
 
   .login-span {
     position: absolute;
-    left: 13%;
     font-family: "Raleway";
     font-size: 12px;
     color: #e6e6e6;
@@ -110,7 +112,7 @@
 
   // remember me and its related checkbox/label alterations
   #remember-me {
-    padding-left: 44px;
+    padding-left: 3px;
     padding-top: 10px;
   }
 
@@ -119,40 +121,47 @@
     height: 40px;
     text-align: center;
     width: 130px;
-    border-radius: 40px;
-    background: #fff;
-    border: 2px solid red;
-    color: red;
+    border-radius: 5px;
+    background: transparent;
+    border: 2px solid #3a96d9;
+    color: #6fd2ff;
     letter-spacing: 1px;
     text-shadow: 0;
-    font: {
-      size: 12px;
-      weight: bold;
-    }
+    font-size: 12px;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.25s ease;
+    -webkit-transition: all 0.15s ease;
+    transition: all 0.15s ease;
+    font-family: 'Raleway';
+    font-weight: 400;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
     &:hover {
       color: white;
-      background: red;
+      background: #0c4877;
     }
     &:active {
       //letter-spacing: 2px;
       letter-spacing: 2px;
     }
     &:after {
-      content: "SUBMIT";
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 400;
+      font-size: 20px;
+      text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+      content: "\f2f6";
     }
   }
   .onclick {
-    width: 40px;
-    border-color: blue;
-    border-width: 3px;
-    font-size: 0;
-    border-left-color: red;
-    animation: rotating 2s 0.25s linear infinite;
+    width: 40px !important;
+    border-color: #0c4877 !important;
+    border-width: 3px !important;
+    font-size: 0 !important;
+    border-left-color: #3a96d9 !important;
+    border-radius: 40px !important; 
+    animation: rotating 1s 0.25s linear infinite;
 
     &:after {
-      content: "";
+      content: "" !important;
     }
     &:hover {
       color: red;
@@ -160,12 +169,13 @@
     }
   }
   .validate {
-    font-size: 13px;
-    color: white;
-    background: red;
+    font-size: 20px !important;
+    color: #08ce08 !important;
+    border: none !important;
+    background: transparent !important;
     &:after {
-      font-family: "FontAwesome";
-      content: "\f00c";
+      font-family: "FontAwesome" !important;
+      content: "\f00c" !important;
     }
   }
 

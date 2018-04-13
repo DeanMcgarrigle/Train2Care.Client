@@ -51,5 +51,26 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log("logging in");
+
+    $("#login-button").addClass("onclick");
+    setTimeout(() => {
+      this.validate();
+    }, 250);
+  }
+
+  validate() {
+    console.log("validating");
+    setTimeout(() => {
+      $("#login-button").removeClass("onclick");
+      $("#login-button").addClass("validate");
+      this.callback();
+    }, 2250);
+  }
+
+  callback() {
+    console.log('callback');
+    setTimeout(function() {
+      $("#login-button").removeClass("validate");
+    }, 4250);
   }
 }
