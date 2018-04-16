@@ -1,16 +1,39 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  trigger,
+  transition,
+  style,
+  animate
+} from "@angular/core";
 import { environment } from "../../../environments/environment";
+import { fadeInAnimation } from "../../_animations/animations";
 import { NgxSiemaOptions, NgxSiemaService } from "ngx-siema";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.scss"]
+  styleUrls: ["./login.component.scss"],
+  animations: [
+    fadeInAnimation,
+    trigger("fadeInOut", [
+      transition(":enter", [
+        // :enter is alias to 'void => *'
+        style({ opacity: 0 }),
+        animate(250, style({ opacity: 1 }))
+      ]),
+      transition(":leave", [
+        // :leave is alias to '* => void'
+        animate(250, style({ opacity: 0 }))
+      ])
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
   logo: any;
   version: string;
   rememberMe: boolean;
+  regSuccess: boolean;
 
   // carousel vars
   currentSlide = 0;
@@ -35,6 +58,7 @@ export class LoginComponent implements OnInit {
     this.logo = require("../../../assets/img/logo-notext-ps.png");
     this.version = environment.version;
     this.rememberMe = false;
+    this.regSuccess = false;
   }
 
   ngOnInit() {}
@@ -46,43 +70,51 @@ export class LoginComponent implements OnInit {
       // tslint:disable-next-line:no-unused-expression
       data != null ? (this.currentSlide = data.currentSlide) : 0;
     });
-    // if (slide >= 0) {
-    //   this.siema.next(1).subscribe((data: any) => {
-    //     // tslint:disable-next-line:no-unused-expression
-    //     data != null ? (this.currentSlide = data.currentSlide) : 0;
-    //   });
-    // } else {
-    //   this.siema.prev(0).subscribe((data: any) => {
-    //     // tslint:disable-next-line:no-unused-expression
-    //     data != null ? (this.currentSlide = data.currentSlide) : 0;
-    //   });
-    // }
-
-    // console.log(this.currentSlide);
   }
 
-  login() {
-    console.log("logging in");
+  login(e) {
+    console.log("logging in", e);
 
-    $("#login-button").addClass("onclick");
+    $("#" + e.target.id).addClass("onclick");
     setTimeout(() => {
-      this.validate();
+      this.validate(e.target.id);
     }, 250);
   }
 
-  validate() {
-    console.log("validating");
+  register(e) {
+    $("#" + e.target.id).addClass("onclick");
     setTimeout(() => {
-      $("#login-button").removeClass("onclick");
-      $("#login-button").addClass("validate");
-      this.callback();
+      this.validate(e.target.id);
+    }, 250);
+  }
+
+  validate(sel) {
+    console.log("validating", sel);
+    setTimeout(() => {
+      $("#" + sel).removeClass("onclick");
+      $("#" + sel).addClass(
+        sel === "register-button" ? "register-validate" : "validate"
+      );
+      sel === "register-button"
+        ? (this.regSuccess = true)
+        : (this.regSuccess = false);
+      this.callback(sel);
     }, 2250);
   }
 
-  callback() {
-    console.log("callback");
-    setTimeout(function() {
-      $("#login-button").removeClass("validate");
+  callback(sel) {
+    console.log("callback", this.regSuccess);
+    setTimeout(() => {
+      $("#" + sel).removeClass(
+        sel === "register-button" ? "register-validate" : "validate"
+      );
+      if (sel === "register-button") {
+        this.regSuccess = false;
+        this.slideSelect(".siema", 0);
+      } else {
+        // login?
+      }
+      console.log("callback", this.regSuccess);
     }, 4250);
   }
 }

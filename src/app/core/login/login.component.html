@@ -47,7 +47,7 @@
                                     </div>
                                     <div class="row pb-5">
                                         <div class="flex justify-content-center" style="width: 76%;">
-                                            <button id="login-button" (click)="login()"></button>
+                                            <button id="login-button" class="login-button" (click)="login($event)"></button>
                                         </div>
                                     </div>
                                     <div class="row" id="help-row">
@@ -67,19 +67,23 @@
                                         <div id="sign-in-label">Register</div>
                                     </div>
                                     <div class="row pb-4" style="padding-left: 2px;">
-                                        <input type="text" id="register-username-box" class="login-input" required autofocus="true">
+                                        <input type="text" id="register-username-box" class="login-input" required autofocus="true" autocomplete="nope">
                                         <span class="login-span" id="register-username-label" style="top:66px;">username</span>
                                     </div>
                                     <div class="row" style="padding-left: 2px;">
-                                        <input type="password" id="register-password-box" class="login-input" required>
+                                        <input type="password" id="register-password-box" class="login-input" required autocomplete="new-password">
                                         <span class="login-span" id="register-password-label" style="top:121px;">password</span>
                                     </div>
-                                    <div class="row pb-5">
-                                        <!-- <p-checkbox id="remember-me" [(ngModel)]="rememberMe" binary="true" label="Keep me signed in"></p-checkbox> -->
+                                    <div class="row pb-4" style="padding-top: 45px;">
+                                        <div class="flex justify-content-center" style="width: 76%">
+                                            <div class="col p-0" id="register-feedback" *ngIf="regSuccess === true">
+                                                <div [@fadeInAnimation] class="text-center">Success! Taking you back to the sign in form</div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row pb-5">
                                         <div class="flex justify-content-center" style="width: 76%;">
-                                            <!-- <button id="login-button" (click)="login()"></button> -->
+                                            <button id="register-button" class="login-button" (click)="register($event)"></button>
                                         </div>
                                     </div>
                                     <div class="row" id="help-row">

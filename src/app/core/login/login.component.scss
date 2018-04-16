@@ -118,7 +118,7 @@
     padding-top: 10px;
   }
 
-  #login-button {
+  .login-button {
     outline: none;
     height: 40px;
     text-align: center;
@@ -153,6 +153,15 @@
       content: "\f2f6";
     }
   }
+
+  #register-button::after {
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 400;
+    font-size: 20px;
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
+    content: "\f234";
+  }
+
   .onclick {
     width: 40px !important;
     border-color: #0c4877 !important;
@@ -166,11 +175,23 @@
       content: "" !important;
     }
     &:hover {
-      color: red;
-      background: white;
+      color: transparent;
+      background: transparent;
     }
   }
+
   .validate {
+    font-size: 20px !important;
+    color: #08ce08 !important;
+    border: none !important;
+    background: transparent !important;
+    &:after {
+      font-family: "FontAwesome" !important;
+      content: "\f00c" !important;
+    }
+  }
+
+  .register-validate {
     font-size: 20px !important;
     color: #08ce08 !important;
     border: none !important;
@@ -197,10 +218,16 @@
     text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.26);
   }
 
+  #register-feedback {
+    font-family: "Raleway";
+    font-size: 12px;
+    color: white;
+  }
+
   .help-text {
     font-size: 12px;
     cursor: pointer;
-    transition: color .2s ease-in-out;
+    transition: color 0.2s ease-in-out;
   }
 
   .help-text:hover {
