@@ -9,6 +9,8 @@ import {
 import { environment } from "../../../environments/environment";
 import { fadeInAnimation } from "../../_animations/animations";
 import { NgxSiemaOptions, NgxSiemaService } from "ngx-siema";
+import { AuthenticationService } from "../services/authentication.service";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
   version: string;
   rememberMe: boolean;
   regSuccess: boolean;
+  credentials: FormGroup;
 
   // carousel vars
   currentSlide = 0;
@@ -54,11 +57,19 @@ export class LoginComponent implements OnInit {
     }
   };
 
-  constructor(private siema: NgxSiemaService) {
+  constructor(
+    private auth: AuthenticationService,
+    private siema: NgxSiemaService,
+    private fb: FormBuilder
+  ) {
     this.logo = require("../../../assets/img/logo-notext-ps.png");
     this.version = environment.version;
     this.rememberMe = false;
     this.regSuccess = false;
+    this.credentials = this.fb.group({
+      username: ["", Validators.required],
+      password: ["", Validators.required]
+    });
   }
 
   ngOnInit() {}
@@ -73,12 +84,28 @@ export class LoginComponent implements OnInit {
   }
 
   login(e) {
-    console.log("logging in", e);
-
-    $("#" + e.target.id).addClass("onclick");
-    setTimeout(() => {
-      this.validate(e.target.id);
-    }, 250);
+    const val = this.credentials.value;
+    const sel = e.target.id;
+    $("#" + sel).addClass("onclick");
+    this.auth
+      .authenticate(val.username, val.password)
+      .subscribe((result: any) => {
+        console.log(result);
+        if (result.statusCode === 200) {
+          $("#" + sel).removeClass("onclick");
+          $("#" + sel).addClass("validate-success");
+        } else {
+          $("#" + sel).removeClass("onclick");
+          $("#" + sel).addClass("validate-failure");
+        }
+      })
+      .add(() => {
+        console.log("do something here after request is done");
+        // $("#" + sel).removeClass(["validate-success", "validate-failure"]);
+      });
+    // setTimeout(() => {
+    //   this.validate(e.target.id);
+    // }, 250);
   }
 
   register(e) {

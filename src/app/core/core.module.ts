@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { CoreRoutingModule } from "./core-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 // Components
 import { NotFoundComponent } from "./not-found/not-found.component";
@@ -12,6 +13,10 @@ import { NavComponent } from "./nav/nav.component";
 
 // services
 import { SharedService } from "./services/shared.service";
+import { DataService } from "./services/data.service";
+import { AuthenticationService } from "./services/authentication.service";
+import { AuthGuardService } from "./services/auth-guard.service";
+import { InterceptorService } from "./services/interceptor.service";
 
 // Third Party modules
 import { NgxSiemaModule } from "ngx-siema";
@@ -21,6 +26,7 @@ import { CheckboxModule } from "primeng/checkbox";
   imports: [
     CommonModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     CoreRoutingModule,
@@ -29,6 +35,6 @@ import { CheckboxModule } from "primeng/checkbox";
   ],
   exports: [RouterModule, NavComponent],
   declarations: [NotFoundComponent, LoginComponent, NavComponent],
-  providers: [SharedService]
+  providers: [SharedService, DataService, AuthenticationService, AuthGuardService, InterceptorService]
 })
 export class CoreModule {}

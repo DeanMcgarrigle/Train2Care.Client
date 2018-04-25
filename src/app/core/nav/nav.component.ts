@@ -1,6 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Location } from "@angular/common";
-import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { SharedService } from "../services/shared.service";
 
@@ -10,11 +8,11 @@ import { SharedService } from "../services/shared.service";
   styleUrls: ["./nav.component.scss"]
 })
 export class NavComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private location: Location,
-    private sharedService: SharedService
-  ) {}
+  logo: any;
+
+  constructor(private sharedService: SharedService) {
+    this.logo = require("../../../assets/img/logo-ps-white.png");
+  }
 
   ngOnInit() {}
 }

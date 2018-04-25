@@ -180,7 +180,7 @@
     }
   }
 
-  .validate {
+  .validate-success {
     font-size: 20px !important;
     color: #08ce08 !important;
     border: none !important;
@@ -188,6 +188,18 @@
     &:after {
       font-family: "FontAwesome" !important;
       content: "\f00c" !important;
+    }
+  }
+
+  .validate-failure {
+    font-size: 20px !important;
+    color: indianred !important;
+    font-weight: 400;
+    border: none !important;
+    background: transparent !important;
+    &:after {
+      font-family: "Font Awesome 5 Pro" !important;
+      content: "\f00d" !important;
     }
   }
 

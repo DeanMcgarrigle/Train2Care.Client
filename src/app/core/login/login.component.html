@@ -34,14 +34,16 @@
                                     <div class="row pb-4">
                                         <div id="sign-in-label">Sign In</div>
                                     </div>
-                                    <div class="row pb-4" style="padding-left: 2px;">
-                                        <input type="text" id="username-box" class="login-input" required autofocus="true">
-                                        <span class="login-span" id="username-label" style="top:66px;">username</span>
-                                    </div>
-                                    <div class="row" style="padding-left: 2px;">
-                                        <input type="password" id="password-box" class="login-input" required>
-                                        <span class="login-span" id="password-label" style="top:121px;">password</span>
-                                    </div>
+                                    <form [formGroup]="credentials">
+                                        <div class="row pb-4" style="padding-left: 2px;">
+                                            <input type="text" id="username-box" class="login-input" name="username" formControlName="username" required autofocus="true">
+                                            <span class="login-span" id="username-label" style="top:66px;">username</span>
+                                        </div>
+                                        <div class="row" style="padding-left: 2px;">
+                                            <input type="password" id="password-box" class="login-input" name="password" formControlName="password" required>
+                                            <span class="login-span" id="password-label" style="top:121px;">password</span>
+                                        </div>
+                                    </form>
                                     <div class="row pb-5">
                                         <p-checkbox id="remember-me" [(ngModel)]="rememberMe" binary="true" label="Keep me signed in"></p-checkbox>
                                     </div>

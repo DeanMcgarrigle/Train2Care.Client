@@ -16,6 +16,9 @@ app-root {
   user-select: none;
   overflow: hidden;
   display: flex;
+  background: #cccccc;
+  background: linear-gradient(45deg, #cccccc 0%, #eaeaea 25%, white 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#ffffff',GradientType=1 );
 }
 
 // Helper class to apply flex layout
